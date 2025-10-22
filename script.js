@@ -99,7 +99,19 @@ function selectAnswer(e) {
 
 function showScore() {
   resetState();
-  questionElement.innerHTML = `You scored ${score} out of ${questions.length}!`;
+
+  let message = "";
+  if (score === 4) {
+    message = "Good job! Harvard should probably give you admission.";
+  } else if (score === 3) {
+    message = "Well, you tried!";
+  } else if (score === 2) {
+    message = "Better luck next time, brochacho.";
+  } else {
+    message = "Please leave 😭";
+  }
+
+  questionElement.innerHTML = `You scored ${score} out of ${questions.length}!<br>${message}`;
   nextButton.innerHTML = "Play Again";
   nextButton.style.display = "block";
 }
